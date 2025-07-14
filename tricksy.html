@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tricksy Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #111 0%, #222 100%);
+      color: white;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    h1 {
+      color: #ff4d4d;
+      animation: fadeInDown 1s ease;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #ff4d4d;
+      text-decoration: none;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: #ff4d4d;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    #themeToggle {
+      background: transparent;
+      border: 1px solid #ff4d4d;
+      color: #ff4d4d;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .about, .achievements, .contact {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .intro-heading {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #ff4d4d;
+      width: 0;
+      animation: typing 2s steps(20) forwards, blink 0.75s step-end infinite;
+      color: #ff4d4d;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .image-wrapper img {
+      width: 400px;
+      max-width: 100%;
+      border-radius: 30px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    ul {
+      list-style: disc;
+      margin-left: 20px;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #ff4d4d;
+    }
+
+    a {
+      color: #ff4d4d;
+    }
+
+    a:hover {
+      color: #ff9999;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      from { transform: translateY(-40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 15ch; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 768px) {
+      .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    body.dark-mode {
+      background: linear-gradient(to right, #000, #333);
+      color: #00f7ff;
+    }
+
+    body.dark-mode header,
+    body.dark-mode .about,
+    body.dark-mode .achievements,
+    body.dark-mode .contact,
+    body.dark-mode footer {
+      background-color: rgba(30, 30, 30, 0.85);
+      color: #00f7ff;
+    }
+
+    body.dark-mode nav a,
+    body.dark-mode .intro-heading {
+      color: #00f7ff;
+    }
+
+    body.dark-mode a:hover {
+      color: #66fff2;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tricksy</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">about</a></li>
+        <li><a href="#achievements">achievements</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>
+    </nav>
+    <button id="themeToggle">Toggle Theme</button>
+  </header>
+
+  <main>
+    <section class="about" id="about">
+      <h2>About Me</h2>
+      <h3 class="intro-heading">Hey, I'm Tricksy</h3>
+      <p>Hi — I'm a professional esports athlete with a passion for strategy and team play. I've been
+        competing in the highest level tournaments and continue to grow with every season. Outside of
+        gaming, I enjoy content creation and mentoring upcoming talent in the community.</p>
+    </section>
+
+    <div class="content-wrapper">
+      <div class="image-wrapper">
+        <img src="image.png" alt="Profile Picture" />
+      </div>
+      <div class="info-sections">
+        <section class="achievements" id="achievements">
+          <h2>Achievements</h2>
+          <ul>
+            <li>BGIS Overall MVP</li>
+            <li>BGIS FMVP</li>
+            <li>PMGC Champions</li>
+            <li>EWC Champion</li>
+          </ul>
+        </section>
+
+        <section class="contact" id="contact">
+          <h2>Contact</h2>
+          <p>Email: tricksy@email.com</p>
+          <p>Twitter: <a href="#">@TricksyPlays</a></p>
+          <p>Instagram: <a href="#">@tricksy.gg</a></p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tricksy. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+</body>
+</html>
